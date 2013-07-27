@@ -1,7 +1,7 @@
 {
   "targets": [
     {
-      "target_name": "pcl-streamer-node",
+      "target_name": "binding",
       "sources": [ "src/binding.cpp" ]
     }
   ]
