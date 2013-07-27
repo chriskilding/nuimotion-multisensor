@@ -1,0 +1,16 @@
+{
+  "name": "pcl-streamer-node",
+  "version": "0.0.1",
+  "author": "Chris Kilding <mr.chris.k@gmail.com>",
+  "description": "Node.js bindings for pcl-streamer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/themasterchef/pcl-streamer-node.git"
+  },
+  "dependencies" : {
+    "bindings"   :  "*"
+  },
+  "engines": {
+    "node": ">=0.6"
+  }
+}
