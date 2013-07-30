@@ -8,7 +8,7 @@
     "url": "https://github.com/themasterchef/pcl-streamer-node.git"
   },
   "dependencies" : {
-    "connect-sse"   :  "*"
+    "sse-stream"   :  "0.0.2"
   },
   "engines": {
     "node": ">=0.6"
