@@ -1,4 +1,4 @@
 pcl-streamer-node
 =================
 
-Node.js bindings for pcl-streamer
+A Node.js server for pcl-streamer data
