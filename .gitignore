@@ -13,3 +13,7 @@
 *.a
 build
 node_modules
+
+# any OpenNI libs
+Nite2
+OpenNI2
