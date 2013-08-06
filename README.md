@@ -1,4 +1,4 @@
-pcl-streamer-node
+nuimotion-multisensor
 =================
 
-A Node.js server for pcl-streamer data
+nuimotion for a multi-sensor setup
