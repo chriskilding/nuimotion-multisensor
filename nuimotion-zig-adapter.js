@@ -2,11 +2,20 @@
 "use strict";
 
 var _ = require("underscore");
-
 var nuimotion = require("nuimotion");
+var sylvester = require("sylvester");
 
 // Mapping of nuijoints to ZigJS joints
 var jointMappings = require("./jointMappings");
+
+function xyzToMatrix(x, y, z) {
+    // TODO args are in degrees, does sylvester want radians?
+    var xm = sylvester.Matrix.RotationX(x);
+    var ym = sylvester.Matrix.RotationY(y);
+    var zm = sylvester.Matrix.RotationZ(z);
+    
+    return xm.multiply(ym).multiply(zm);
+}
 
 // Converts just one joint of data to Zig format
 function convertJoint(nuijoint, id) {
@@ -18,8 +27,11 @@ function convertJoint(nuijoint, id) {
             nuijoint.z
         ],
         positionConfidence: nuijoint.positionConfidence,
-        rotation: [], // ???? xyz to matrix,
-        rotationConfidence: 0 // nuimotion doesn't report this
+        rotation: xyzToMatrix(nuijoint.xRotation,
+                              nuijoint.yRotation,
+                              nuijoint.zRotation),
+        // nuimotion doesn't report this
+        rotationConfidence: 0
     };
 }
 
