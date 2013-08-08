@@ -8,7 +8,7 @@
     "url": "https://github.com/themasterchef/nuimotion-multisensor.git"
   },
   "dependencies": {
-    "sse-stream": "0.0.2",
+    "underscore": "1.5.1",
     "nuimotion": "0.1.2"
   },
   "engines": {
