@@ -1,7 +1,8 @@
 console.log("starting");
 var nuimotion = require("nuimotion");
-var converter = require("./nuimotion-zig-adapter")
+// var converter = require("./nuimotion-zig-adapter")
 console.log("joints", nuimotion);
+console.log("zig", require("./zigJoints"));
 
 var onSkeletonUpdate = function (skel) {
     converter.convert(skel);
