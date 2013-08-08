@@ -14,3 +14,7 @@ var onSkeletonUpdate = function (skel) {
 nuimotion.startSkeletonListener(nuimotion.Joints, onSkeletonUpdate, 10000);
 
 nuimotion.init();
+
+process.on('exit', function () {
+    nuimotion.close();
+});
