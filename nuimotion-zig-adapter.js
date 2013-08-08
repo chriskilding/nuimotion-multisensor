@@ -3,6 +3,8 @@ var _ = require("underscore");
 // The ZigJS joints
 var zigJoints = require("./zigJoints");
 
+var nuimotion = require("nuimotion");
+
 // Mapping of nuijoints to ZigJS joints
 var jointMappings = {
     nuimotion.Joints.HEAD: zigJoints.Head,
