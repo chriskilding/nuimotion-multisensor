@@ -11,9 +11,12 @@
 *.lai
 *.la
 *.a
+
 build
 node_modules
 
+*~
+
 # any OpenNI libs
-Nite2
+NiTE2
 OpenNI2

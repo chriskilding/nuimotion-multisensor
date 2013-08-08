@@ -12,3 +12,5 @@ var onSkeletonUpdate = function (skel) {
 
 // listen to the whole array
 nuimotion.startSkeletonListener(nuimotion.Joints, onSkeletonUpdate, 10000);
+
+nuimotion.init();
