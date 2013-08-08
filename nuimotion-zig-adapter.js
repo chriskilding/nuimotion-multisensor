@@ -8,16 +8,9 @@ var nuimotion = require("nuimotion");
 // Mapping of nuijoints to ZigJS joints
 var jointMappings = require("./jointMappings");
 
-// Adapts the NUIMotion data format to that of ZigJS
-// which is what we happen to be using elsewhere on our own project.
-// Don't plug in this module if you intend to use NUIMotion as is.
-function convert(nuiskeleton) {
-    // var zigskeleton = {};
-    console.log(nuiskeleton);
-}
-
+// Converts just one joint of data to Zig format
 function convertJoint(nuijoint, id) {
-    /*return {
+    return {
         id: id,
         position: [
             nuijoint.x,
@@ -25,9 +18,33 @@ function convertJoint(nuijoint, id) {
             nuijoint.z
         ],
         positionConfidence: nuijoint.positionConfidence,
-        rotation: ???? xyz to matrix,
-        rotationConfidence: 1 // nuimotion doesn't report this
-    };*/
+        rotation: [], // ???? xyz to matrix,
+        rotationConfidence: 0 // nuimotion doesn't report this
+    };
+}
+
+// Converts an NUIMotion skeleton reading to a ZigJS skeleton reading
+// which is what we happen to be using elsewhere on our own project.
+// Don't plug in this module if you intend to use NUIMotion as is.
+function convert(nuiskeleton) {
+    // nuiskeleton is a json object
+    // key = joint enum, value = the data
+    // { "HEAD": { position: blah } }
+    
+    console.log(nuiskeleton);
+    
+    // The returner has to be an object
+    // so can't use _.map directly, unfortunately
+    var returner = {};
+    _.each(nuiskeleton, function (jointData, jointId) {
+        // First figure out the correspondingZig joint ID
+        var zigJointId = jointMappings[jointId];
+        // Then set a new property of that joint ID on the object
+        // where the value is the converted joint data
+        returner[zigJointId] = convertJoint(jointData, zigJointId);
+    });
+    
+    return returner;
 }
 
 exports.convert = convert;

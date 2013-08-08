@@ -20,3 +20,4 @@ node_modules
 # any OpenNI libs
 NiTE2
 OpenNI2
+npm-debug.log
