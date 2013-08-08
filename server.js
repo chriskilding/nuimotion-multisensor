@@ -4,10 +4,9 @@
 console.log("starting");
 var nuimotion = require("nuimotion");
 var converter = require("./nuimotion-zig-adapter");
-console.log("nuimotion", nuimotion);
 
 var onSkeletonUpdate = function (skel) {
-    converter.convert(skel);
+    var zigSkeleton = converter.convert(skel);
 };
 
 // listen to the whole array

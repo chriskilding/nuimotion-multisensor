@@ -4,17 +4,27 @@
 var _ = require("underscore");
 var nuimotion = require("nuimotion");
 var sylvester = require("sylvester");
+var reconstructor = require("reconstruct-o-matic");
 
 // Mapping of nuijoints to ZigJS joints
 var jointMappings = require("./jointMappings");
 
+// Sylvester expects radians!
 function xyzToMatrix(x, y, z) {
-    // TODO args are in degrees, does sylvester want radians?
     var xm = sylvester.Matrix.RotationX(x);
     var ym = sylvester.Matrix.RotationY(y);
     var zm = sylvester.Matrix.RotationZ(z);
     
     return xm.multiply(ym).multiply(zm);
+}
+
+// Converts your degrees to radians before calling xyzToMatrix
+function xyzToMatrixDegrees(x, y, z) {
+    return xyzToMatrix(
+        reconstructor.Math.Triangles.degreesToRadians(x),
+        reconstructor.Math.Triangles.degreesToRadians(y),
+        reconstructor.Math.Triangles.degreesToRadians(z)
+    );
 }
 
 // Converts just one joint of data to Zig format

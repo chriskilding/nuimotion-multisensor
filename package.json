@@ -1,18 +1,19 @@
 {
-  "name": "nuimotion-multisensor",
-  "version": "0.0.1",
-  "author": "Chris Kilding <mr.chris.k@gmail.com>",
-  "description": "nuimotion for a multi-sensor setup",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/themasterchef/nuimotion-multisensor.git"
-  },
-  "dependencies": {
-    "underscore": "1.5.1",
-    "nuimotion": "0.1.2",
-    "sylvester": "0.0.21"
-  },
-  "engines": {
-    "node": ">=0.8"
-  }
+    "name": "nuimotion-multisensor",
+    "version": "0.0.1",
+    "author": "Chris Kilding <mr.chris.k@gmail.com>",
+    "description": "nuimotion for a multi-sensor setup",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/themasterchef/nuimotion-multisensor.git"
+    },
+    "dependencies": {
+        "underscore": "1.5.1",
+        "nuimotion": "0.1.2",
+        "sylvester": "0.0.21",
+        "reconstruct-o-matic": "0.0.1"
+    },
+    "engines": {
+        "node": ">=0.8"
+    }
 }
