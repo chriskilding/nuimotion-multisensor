@@ -7,7 +7,7 @@ var sylvester = require("sylvester");
 var reconstructor = require("reconstruct-o-matic");
 
 // Mapping of nuijoints to ZigJS joints
-var jointMappings = require("./jointMappings");
+var jointMappings = require("./JointMappings");
 
 // Sylvester expects radians!
 function xyzToMatrix(x, y, z) {
