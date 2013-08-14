@@ -1,17 +1,13 @@
 /*jslint node: true */
 "use strict";
 
-/**
- * Module for mapping data to the ZigJS format.
- */
-
 var _ = require("underscore");
-var oni = require("openni");
+var nuimotion = require("nuimotion");
 var sylvester = require("sylvester");
 var reconstructor = require("reconstruct-o-matic");
 
-// Mapping to ZigJS joints
-var jointMappings = require("./JointMappings");
+// Mapping of nuijoints to ZigJS joints
+var jointMappings = require("./jointMappings");
 
 // Sylvester expects radians!
 function xyzToMatrix(x, y, z) {
@@ -32,19 +28,19 @@ function xyzToMatrixDegrees(x, y, z) {
 }
 
 // Converts just one joint of data to Zig format
-function convertJoint(jointData, id) {
+function convertJoint(nuijoint, id) {
     return {
         id: id,
         position: [
-            jointData.x,
-            jointData.y,
-            jointData.z
+            nuijoint.x,
+            nuijoint.y,
+            nuijoint.z
         ],
-        positionConfidence: jointData.positionConfidence,
-        rotation: xyzToMatrix(jointData.xRotation,
-                              jointData.yRotation,
-                              jointData.zRotation),
-        // node module doesn't report this
+        positionConfidence: nuijoint.positionConfidence,
+        rotation: xyzToMatrix(nuijoint.xRotation,
+                              nuijoint.yRotation,
+                              nuijoint.zRotation),
+        // nuimotion doesn't report this
         rotationConfidence: 0
     };
 }

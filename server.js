@@ -2,16 +2,18 @@
 "use strict";
 
 console.log("starting");
-var OpenNI = require("openni");
-var context = OpenNI();
+var nuimotion = require("nuimotion");
+var converter = require("./nuimotion-zig-adapter");
 
-// var converter = require("./nuimotion-zig-adapter");
-
-context.emit = function () {
-  console.log('emitted', arguments);
+var onSkeletonUpdate = function (skel) {
+    var zigSkeleton = converter.convert(skel);
 };
 
-process.on('SIGINT', function () {
-  context.close();
-  process.exit();
+// listen to the whole array
+nuimotion.startSkeletonListener(nuimotion.Joints, onSkeletonUpdate, 10000);
+
+nuimotion.init();
+
+process.on('exit', function () {
+    nuimotion.close();
 });

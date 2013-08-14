@@ -9,7 +9,7 @@
     },
     "dependencies": {
         "underscore": "1.5.1",
-        // "openni": "0.3.1",
+        "nuimotion": "0.1.2",
         "sylvester": "0.0.21",
         "reconstruct-o-matic": "0.0.1"
     },
