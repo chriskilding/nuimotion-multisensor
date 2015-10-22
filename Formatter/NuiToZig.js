@@ -50,7 +50,7 @@ function convertJoint(nuijoint, id) {
 // Don't plug in this module if you intend to use NUIMotion as is.
 function convert(nuiskeleton) {
     // nuiskeleton is a json object
-    // key = joint enum, value = the data
+    // key = joint enum, value = the data   
     // { "HEAD": { position: blah } }
     
     console.log(nuiskeleton);

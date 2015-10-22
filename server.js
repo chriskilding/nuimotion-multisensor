@@ -3,14 +3,15 @@
 
 console.log("starting");
 var nuimotion = require("nuimotion");
-var converter = require("./nuimotion-zig-adapter");
+var converter = require("./Formatter/NuiToZig");
 
 var onSkeletonUpdate = function (skel) {
-    var zigSkeleton = converter.convert(skel);
+    console.log(skel);
+    // var zigSkeleton = converter.convert(skel);
 };
 
 // listen to the whole array
-nuimotion.startSkeletonListener(nuimotion.Joints, onSkeletonUpdate, 10000);
+nuimotion.startSkeletonListener(nuimotion.Joints, onSkeletonUpdate, 500);
 
 nuimotion.init();
 
